@@ -1,3 +1,6 @@
 from django.contrib import admin
+from .models import Actors
 
-# Register your models here.
+@admin.register(Actors)
+class ActorAdmin(admin.ModelAdmin):
+    list_display = ('id', 'name', 'birthday', 'nationality')
