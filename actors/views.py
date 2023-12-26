@@ -1,11 +1,11 @@
 from rest_framework import generics
-from .models import Actors
-from .serializers import ActorsSerializer
+from .models import Actor
+from .serializers import ActorSerializer
 
-class ActorsCreateListView(generics.ListCreateAPIView):
-    queryset = Actors.objects.all()
-    serializer_class = ActorsSerializer
+class ActorCreateListView(generics.ListCreateAPIView):
+    queryset = Actor.objects.all()
+    serializer_class = ActorSerializer
 
-class ActorsDetailUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Actors.objects.all()
-    serializer_class = ActorsSerializer
+class ActorDetailUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Actor.objects.all()
+    serializer_class = ActorSerializer
