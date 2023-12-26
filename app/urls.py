@@ -24,6 +24,7 @@ urlpatterns = [
     path('api/', include('genres.urls')),
     path('api/', include('actors.urls')),
     path('api/', include('movies.urls')),
+    path('api/', include('reviews.urls')),
     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
     re_path(r'^.*$', RedirectView.as_view(url='swagger/', permanent=False)),
 ]
