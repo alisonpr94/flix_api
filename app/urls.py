@@ -21,10 +21,12 @@ schema_view = get_schema_view(
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+
+    path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
+    
+    path('api/v1/', include('authentication.urls')),
     path('api/v1/', include('genres.urls')),
     path('api/v1/', include('actors.urls')),
     path('api/v1/', include('movies.urls')),
     path('api/v1/', include('reviews.urls')),
-    path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
-    re_path(r'^.*$', RedirectView.as_view(url='swagger/', permanent=False)),
 ]
