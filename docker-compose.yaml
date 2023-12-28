@@ -6,10 +6,3 @@ services:
     image: flixapi:latest
     ports:
       - "8000:8000/tcp"
-    depends_on:
-      - db
-
-  db:
-    image: "sqlite:latest"
-    volumes:
-      - ./db.sqlite3:/app/db.sqlite3
