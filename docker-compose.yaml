@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  flixapi:
+    container_name: flixapi
+    image: flixapi:latest
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+
+  db:
+    image: "sqlite:latest"
+    volumes:
+      - ./db.sqlite3:/app/db.sqlite3
