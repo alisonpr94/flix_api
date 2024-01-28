@@ -6,15 +6,18 @@ from app.permissions import GlobalDefaultPermission
 from django.db.models import Count, Avg
 from reviews.models import Review
 
+
 class MovieCreateListView(generics.ListCreateAPIView):
     permission_classes = (IsAuthenticated, GlobalDefaultPermission,)
     queryset = Movie.objects.all()
     serializer_class = MovieSerializer
 
+
 class MovieDetailUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = (IsAuthenticated, GlobalDefaultPermission,)
     queryset = Movie.objects.all()
     serializer_class = MovieSerializer
+
 
 class MovieStatsView(views.APIView):
     permission_classes = (IsAuthenticated, GlobalDefaultPermission,)
