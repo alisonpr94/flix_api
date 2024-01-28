@@ -2,6 +2,7 @@ from rest_framework import serializers
 from .models import Actor
 from datetime import date
 
+
 class ActorSerializer(serializers.ModelSerializer):
     age = serializers.SerializerMethodField(read_only=True)
 
