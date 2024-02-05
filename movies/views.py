@@ -1,5 +1,5 @@
 from .models import Movie
-from .serializers import MovieSerializer, MoveListSerializer
+from .serializers import MovieSerializer, MoveListDetailSerializer
 from rest_framework import generics, views, response, status
 from rest_framework.permissions import IsAuthenticated
 from app.permissions import GlobalDefaultPermission
@@ -14,14 +14,18 @@ class MovieCreateListView(generics.ListCreateAPIView):
 
     def get_serializer_class(self):
         if self.request.method == 'GET':
-            return MoveListSerializer
+            return MoveListDetailSerializer
         return MovieSerializer
 
 
 class MovieDetailUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = (IsAuthenticated, GlobalDefaultPermission,)
     queryset = Movie.objects.all()
-    serializer_class = MovieSerializer
+    
+    def get_serializer_class(self):
+        if self.request.method == 'GET':
+            return MoveListDetailSerializer
+        return MovieSerializer
 
 
 class MovieStatsView(views.APIView):
