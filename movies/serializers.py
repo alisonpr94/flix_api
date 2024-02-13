@@ -23,11 +23,12 @@ class MovieSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError('Resumo não deve ser maior do que 200 caracteres.')
         return value
 
+
 class MoveListDetailSerializer(serializers.ModelSerializer):
     actors = ActorSerializer(many=True)
     genre = GenreSerializer()
     rate = serializers.SerializerMethodField(read_only=True)
-    
+
     class Meta:
         model = Movie
         fields = ['id', 'title', 'genre', 'actors', 'release_date', 'rate', 'resume']
