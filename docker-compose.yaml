@@ -1,0 +1,8 @@
+version: '3.9'
+
+services:
+  flixapi:
+    container_name: flixapi
+    image: flixapi:latest
+    ports:
+      - "8000:8000/tcp"
